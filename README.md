@@ -51,6 +51,8 @@ To ensure **high-trust, ML-ready datasets** by building a system that:
 | Whitespace issues | Auto-strip leading/trailing spaces |
 | Rare categories | Merge under “Other” or closest match (NLP-based typo detection using N-grams + Jaccard) |
 | Invalid dates | Flag for exclusion |
+| custom rule-based errors | converted to NULL |
+| high skewness | Power transformation |
 
 🧠 **Every decision is explainable** — logged in the recommendations report.
 
@@ -89,8 +91,8 @@ Same pipeline applied for fair benchmarking.
 | `meta_data.csv` | Column-wise metrics from profiling |
 | `recommendations.csv` | Ranked fixes per column |
 | `cleaned_dataset/` | Final cleansed datasets |
-| `dq_scores.json` | DQ score per dataset |
-| `logs/` | Recommendation traceability |
+| `dq_scores.csv` | DQ score per dataset |
+| `summarized_meta` | summarizes the meta table |
 
 Compliant data → **better downstream ML performance** ✔
 
@@ -112,3 +114,6 @@ Compliant data → **better downstream ML performance** ✔
 Dataset → Profiling → Issue Detection → Recommendation Engine
        ↓                         ↓
    Drift & Entropy Analysis → Auto-Cleansing → DQ Score → Reports
+
+
+
